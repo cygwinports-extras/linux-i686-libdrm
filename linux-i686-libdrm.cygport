@@ -1,0 +1,21 @@
+CROSS_HOST="i686-pc-linux-gnu"
+inherit cross
+
+NAME="linux-i686-libdrm"
+VERSION=2.4.39
+RELEASE=1
+CATEGORY="Devel"
+SUMMARY="X11 PCI device library for Linux i686 toolchain"
+DESCRIPTION="This package does NOT contain cygwin binaries.  Instead, it
+contains Linux ELF binaries.  It is for use with the linux-i686-gcc cross
+compiler, and installs into the
+/usr/i686-pc-linux-gnu/sys-root/usr/{lib,include} directories."
+HOMEPAGE="http://dri.freedesktop.org/"
+SRC_URI="http://dri.freedesktop.org/libdrm/libdrm-${VERSION}.tar.bz2"
+SRC_DIR="libdrm-${VERSION}"
+
+DIFF_EXCLUDES="Makefile"
+
+CYGCONF_ARGS="PTHREADSTUBS_CFLAGS=-DHAVE_PTHREAD_H PTHREADSTUBS_LIBS=-lpthread"
+
+KEEP_LA_FILES="none"
